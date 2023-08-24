@@ -22,6 +22,8 @@ import com.examly.springapp.repository.TaskRepository;
 
 public class TaskController {
 
+  private static final String  = "Task not found";
+
   @Autowired
   private TaskRepository taskRepository;
 

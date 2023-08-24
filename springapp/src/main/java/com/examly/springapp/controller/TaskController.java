@@ -22,7 +22,7 @@ import com.examly.springapp.repository.TaskRepository;
 
 public class TaskController {
 
-  const TASK_ERROR = "Task not found";
+  String ERROR = "Task not found";
 
   @Autowired
   private TaskRepository taskRepository;

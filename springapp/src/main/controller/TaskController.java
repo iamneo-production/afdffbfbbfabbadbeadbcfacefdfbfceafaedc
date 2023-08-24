@@ -20,7 +20,7 @@ import com.examly.springapp.repository.TaskRepository;
 @RestController
 @RequestMapping("")
 
-public class taskController {
+public class TaskController {
     @Autowired
   private TaskRepository taskRepository;
 

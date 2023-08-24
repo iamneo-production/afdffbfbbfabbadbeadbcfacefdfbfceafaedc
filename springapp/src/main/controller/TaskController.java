@@ -21,7 +21,8 @@ import com.examly.springapp.repository.TaskRepository;
 @RequestMapping("")
 
 public class TaskController {
-    @Autowired
+
+  @Autowired
   private TaskRepository taskRepository;
 
   @GetMapping("/alltasks")
@@ -64,4 +65,3 @@ public class TaskController {
 
 
 }
-  

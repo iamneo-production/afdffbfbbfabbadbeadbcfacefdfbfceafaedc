@@ -47,10 +47,10 @@ public class TaskController {
   }
 
   @GetMapping("/changeStatus")
-  public ResponseEntity<Task> updateTask(@RequestParam Long id, @RequestBody Task TASK_DETAILS)
+  public ResponseEntity<Task> updateTask(@RequestParam Long id, @RequestBody Task Taskdetails)
   {
     Task task = taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException(TASK_ERROR+" :"+id));
-    task.setTaskStatus(TASK_DETAILS.getTaskStatus());
+    task.setTaskStatus(Taskdetails.getTaskStatus());
 
     Task updatedtask = taskRepository.save(task);
     return ResponseEntity.ok(updatedtask);

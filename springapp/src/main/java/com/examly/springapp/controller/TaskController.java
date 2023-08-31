@@ -18,8 +18,6 @@ import com.examly.springapp.model.Task;
 import com.examly.springapp.repository.TaskRepository;
 
 @RestController
-@RequestMapping("")
-
 public class TaskController {
     private static final String TASK_ERROR = "Task not found";
 

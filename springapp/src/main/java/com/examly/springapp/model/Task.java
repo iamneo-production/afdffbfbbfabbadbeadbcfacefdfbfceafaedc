@@ -10,8 +10,8 @@ import javax.persistence.Table;
 public class Task {
   @Id
   // @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long taskId;
-   
+  private long taskId;
+  
   @Column(name = "taskHolderName")
   private String taskHolderName;
   
@@ -30,7 +30,7 @@ public class Task {
   }
 
 
-  public Task(Long taskId, String taskHolderName, String taskDate, String taskName, String taskStatus) {
+  public Task(long taskId, String taskHolderName, String taskDate, String taskName, String taskStatus) {
     this.taskId = taskId;
     this.taskHolderName = taskHolderName;
     this.taskDate = taskDate;
@@ -43,7 +43,7 @@ public class Task {
     return this.taskId;
   }
 
-  public void setTaskId(Long taskId) {
+  public void setTaskId(long taskId) {
     this.taskId = taskId;
   }
 

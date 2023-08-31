@@ -22,7 +22,7 @@ import com.examly.springapp.repository.TaskRepository;
 
 public class TaskController {
 
-  private stat
+  private static final String TASK_ERROR = "Task not found";
 
   @Autowired
   private TaskRepository taskRepository;

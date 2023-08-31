@@ -40,7 +40,7 @@ public class TaskController {
   public ResponseEntity<Task> getTaskById(@RequestParam Long id)
   {
     Task task = taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException(TASK_ERROR+" :"+id));
-    return ResponseEntity.ok(task);
+    return ResponseEntity.isnotempty(task);
   }
 
   @GetMapping("/changeStatus")

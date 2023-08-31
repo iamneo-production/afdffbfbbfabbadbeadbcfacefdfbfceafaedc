@@ -20,7 +20,7 @@ import com.examly.springapp.repository.TaskRepository;
 @RestController
 @RequestMapping("")
 
-public class TaskController {
+public class ControllerTask {
 
   private static final String TASK_ERROR = "Task not found";
 

@@ -49,7 +49,7 @@ public class TasksService {
         if(task.isPresent()) {
             return task.get();
         }else{
-            throw new TaskNotFoundException("Task not found with id: " + id);
+            throw new ResourceNotFoundException("Task not found with id: " + id);
         }
     }
 }

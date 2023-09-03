@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.examly.springapp.TaskNotFoundException;
+import com.examly.springapp.exception.ResourceNotFoundException;
 import com.examly.springapp.repository.TasksRepository;
 import com.examly.springapp.model.Tasks;
 

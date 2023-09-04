@@ -4,7 +4,7 @@ import java.util.*;
 
 import com.examly.springapp.service.TasksService;
 import com.examly.springapp.model.Tasks;
-import com.examly.springapp.exception.ResourceNotFoundException;
+import com.examly.springapp.TaskNotFoundException;
 import com.examly.springapp.repository.TasksRepository;
 
 import org.springframework.http.ResponseEntity;

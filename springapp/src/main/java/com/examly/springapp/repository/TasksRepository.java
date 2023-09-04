@@ -5,7 +5,7 @@ import com.examly.springapp.model.Tasks;
 
 public interface TasksRepository extends CrudRepository<Tasks, Integer>
 { 
-    Task findByTaskId(Integer taskId);
+    Tasks findByTaskId(Integer taskId);
     
 }
     

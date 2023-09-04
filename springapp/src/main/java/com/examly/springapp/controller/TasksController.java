@@ -1,18 +1,16 @@
 package com.examly.springapp.controller;
 
-import java.util.*;
-
 import com.examly.springapp.service.TasksService;
 import com.examly.springapp.model.Tasks;
 import com.examly.springapp.exception.ResourceNotFoundException;
-
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.HttpStatus;
+import com.examly.springapp.repository.TasksRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.*;
 import java.util.List;
 
 @RestController
@@ -20,7 +18,7 @@ public class TasksController {
     private final TaskService taskService;
 
     @Autowired
-    public TasksController(TaskService taskService) {
+    public TasksController(TasksService taskService) {
         this.taskService = taskService;
     }
 

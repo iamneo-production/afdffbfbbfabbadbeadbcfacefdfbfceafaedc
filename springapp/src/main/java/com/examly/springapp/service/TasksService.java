@@ -12,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TaskService {
-    private final TaskRepository taskRepository;
+public class TasksService {
+    private final TasksRepository taskRepository;
 
     @Autowired
-    public TaskService(TaskRepository taskRepository) {
+    public TaskService(TasksRepository taskRepository) {
         this.taskRepository = taskRepository;
     }
 

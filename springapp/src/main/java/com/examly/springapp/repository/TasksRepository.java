@@ -1,9 +1,7 @@
 package com.examly.springapp.repository;
 
-import org.springframework.data.repository.CrudRepository;
-import com.examly.springapp.model.Tasks;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface TasksRepository extends CrudRepository<Tasks, Integer>
-{ 
-    Tasks findByTaskId(Integer taskId);
+public interface TaskRepository extends JpaRepository<Task, Long> {
+    Task findByTaskId(String taskId);
 }

@@ -20,8 +20,8 @@ public class Tasks {
     private String taskDate;
     @Column
     private String taskName;
-    @Column
     private String taskStatus;
+    
     public int getTaskId(){
         return taskId;
     }

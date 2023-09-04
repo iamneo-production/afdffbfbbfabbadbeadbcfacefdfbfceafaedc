@@ -22,7 +22,6 @@ public class Tasks {
     private String taskName;
     @Column
     private String taskStatus;
-    
     public int getTaskId(){
         return taskId;
     }

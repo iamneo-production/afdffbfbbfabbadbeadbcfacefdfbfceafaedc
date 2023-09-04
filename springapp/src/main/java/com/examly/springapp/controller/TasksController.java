@@ -16,11 +16,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class TaskController {
+public class TasksController {
     private final TaskService taskService;
 
     @Autowired
-    public TaskController(TaskService taskService) {
+    public TasksController(TaskService taskService) {
         this.taskService = taskService;
     }
 

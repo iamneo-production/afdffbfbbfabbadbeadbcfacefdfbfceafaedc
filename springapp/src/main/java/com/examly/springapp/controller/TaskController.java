@@ -18,42 +18,50 @@ import com.examly.springapp.model.Task;
 import com.examly.springapp.repository.TaskRepository;
 
 @RestController
+@RequestMapping("")
+
 public class TaskController {
-    
-    @Autowired
-    private TaskRepository taskRepository;
 
-    // Save a new task 
-    @PostMapping("/saveTask")
-    public Task saveTask(@RequestBody Task task) {
-        return taskRepository.save(task);
-    }
+  @Autowired
+  private TaskRepository taskRepository;
 
-    // Change task status
-    @GetMapping("/changeStatus")
-    public Task changeStatus(@RequestParam("id") String taskId, @RequestParam("status") String taskStatus) {
-        Task task = taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
-        task.setTaskStatus(taskStatus);
-        return taskRepository.save(task);
-    }
+  @GetMapping("/alltasks")
+  public List<Task> getallTasks()
+  {
+    return taskRepository.findAll();
+  }
+  
+  @PostMapping("/saveTask")
+  public Task createTask(@RequestBody Task task)
+  {
+    return taskRepository.save(task);
+  }
 
-    // Delete a task
-    @GetMapping("/deleteTask")
-    public ResponseEntity<Void> deleteTask(@RequestParam("id") String taskId) {
-        Task task = taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
-        taskRepository.delete(task);
-        return ResponseEntity.ok().build();
-    }
+  @GetMapping("/getTask")
+  public ResponseEntity<Task> getTaskById(@RequestParam Long id)
+  {
+    Task task = taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Task not found :"+id));
+    return ResponseEntity.ok(task);
+  }
 
-    // Get all tasks
-    @GetMapping("/alltasks")
-    public List<Task> getAllTasks() {
-        return taskRepository.findAll();
-    }
+  @GetMapping("/changeStatus")
+  public ResponseEntity<Task> updateTask(@RequestParam Long id, @RequestBody Task Taskdetails)
+  {
+    Task task = taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Task not found :"+id));
+    task.setTaskStatus(Taskdetails.getTaskStatus());
 
-    // Get task by task holder name
-    @GetMapping("/getTask")
-    public Task getTaskByTaskId(@RequestParam("id") String taskId) {
-        return taskRepository.findById(taskId).orElseThrow(() -> new TaskNotFoundException(taskId));
-    }
+    Task updatedtask = taskRepository.save(task);
+    return ResponseEntity.ok(updatedtask);
+
+  }
+
+  @GetMapping("/deleteTask")
+  public String deleteTaskById(@RequestParam Long id)
+  {
+    Task task = taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Task not found :"+id));
+    taskRepository.delete(task);
+    return "deleted sucessfully";
+  }
+
+
 }

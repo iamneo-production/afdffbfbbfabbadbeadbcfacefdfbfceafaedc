@@ -3,7 +3,7 @@ package com.examly.springapp.controller;
 import java.util.*;
 
 import com.examly.springapp.model.Task;
-import com.examly.springapp.TaskNotFoundException;
+import com.examly.springapp.exception.TaskNotFoundException;
 import com.examly.springapp.repository.TaskRepository;
 
 import org.springframework.http.ResponseEntity;

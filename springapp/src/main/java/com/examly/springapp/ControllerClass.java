@@ -1,4 +1,5 @@
 package com.examly.springapp;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,14 +13,14 @@ public class ControllerClass {
     @Autowired
     ServiceClass service;
     @GetMapping("/alltasks")
-    public List<ModelTask> getAllTasks()
+    public List<Task> getAllTasks()
     {
         return service.findAllTask();
     }
     @PostMapping("/saveTask")
-    public ModelTask addTask(@RequestBody ModelTask mt)
+    public Task addTask(@RequestBody Task t)
     {
-        return service.addTask(mt);
+        return service.addTask(t);
     }
     @GetMapping("/deleteTask")
     public void deleteTask(@RequestParam String taskId)
@@ -28,7 +29,7 @@ public class ControllerClass {
     service.deleteTask(Integer.valueOf(taskId));
     }
     @GetMapping("/getTask")
-    public Optional<ModelTask> getbyId(@RequestParam String taskId)
+    public Optional<Task> getbyId(@RequestParam String taskId)
     {
         return service.getTaskById(Integer.valueOf(taskId));
     }

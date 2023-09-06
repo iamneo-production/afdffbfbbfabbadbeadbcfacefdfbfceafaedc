@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class ModelTask {
+public class Task {
     @Id
     int taskId;
     String taskHolderName;

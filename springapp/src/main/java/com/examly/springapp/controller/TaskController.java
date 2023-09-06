@@ -57,7 +57,11 @@ public class TaskController {
 
   }
 
-  @GetMapping("/deleteTask")
+  /**
+ * @param id
+ * @return
+ */
+@GetMapping("/deleteTask")
   public String deleteTaskById(@RequestParam Long id)
   {
     Task task = taskRepository.findById(id).orElseThrow(()-> new TaskNotFoundException(TASK_ERROR+" :"+id));

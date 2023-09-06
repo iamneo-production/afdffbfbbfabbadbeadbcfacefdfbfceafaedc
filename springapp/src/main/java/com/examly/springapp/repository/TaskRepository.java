@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.examly.springapp.model.Task;
 
 @Repository
-public interface TaskRepository extends JpaRepository<Task, String>
+public interface TaskRepository extends JpaRepository<Task, Long>
 {
     
 }

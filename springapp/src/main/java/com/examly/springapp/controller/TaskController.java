@@ -40,14 +40,14 @@ public class TaskController {
   @GetMapping("/getTask")
   public ResponseEntity<Task> getTaskById(@RequestParam Long id)
   {
-    Task task = taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Task not found :"+id));
+    Task task = taskRepository.findById(id).orElseThrow(()-> new TaskNotFoundException("Task not found :"+id));
     return ResponseEntity.ok(task);
   }
 
   @GetMapping("/changeStatus")
   public ResponseEntity<Task> updateTask(@RequestParam Long id, @RequestBody Task Taskdetails)
   {
-    Task task = taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Task not found :"+id));
+    Task task = taskRepository.findById(id).orElseThrow(()-> new TaskNotFoundException("Task not found :"+id));
     task.setTaskStatus(Taskdetails.getTaskStatus());
 
     Task updatedtask = taskRepository.save(task);
@@ -58,9 +58,9 @@ public class TaskController {
   @GetMapping("/deleteTask")
   public String deleteTaskById(@RequestParam Long id)
   {
-    Task task = taskRepository.findById(id).orElseThrow(()-> new ResourceNotFoundException("Task not found :"+id));
+    Task task = taskRepository.findById(id).orElseThrow(()-> new TaskNotFoundException("Task not found :"+id));
     taskRepository.delete(task);
-    return "deleted sucessfully";
+    return ResponseEntity.ok().build();
   }
 
 

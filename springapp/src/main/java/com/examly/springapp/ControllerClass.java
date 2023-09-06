@@ -11,7 +11,7 @@ import java.util.*;
 @RestController
 public class ControllerClass {
     @Autowired
-    ServiceClass service;
+    TaskService service;
     @GetMapping("/alltasks")
     public List<Task> getAllTasks()
     {

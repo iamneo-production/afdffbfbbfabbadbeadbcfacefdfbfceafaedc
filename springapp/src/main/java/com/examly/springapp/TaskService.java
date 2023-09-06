@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class ServiceClass{
+public class TaskService{
     @Autowired
     Respository rep;
     public Task addTask(Task task)

@@ -62,7 +62,7 @@ public class TaskController {
   {
     Task task = taskRepository.findById(id).orElseThrow(()-> new TaskNotFoundException(TASK_ERROR+" :"+id));
     taskRepository.delete(task);
-    return ResponseEntity.ok().build();
+    return ResponseEntity.ok();
   }
 
 

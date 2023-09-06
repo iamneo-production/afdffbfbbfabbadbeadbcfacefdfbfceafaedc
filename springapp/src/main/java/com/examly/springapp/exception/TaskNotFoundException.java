@@ -1,4 +1,4 @@
-package com.examly.springapp;
+package com.examly.springapp.exception;
 
 public class TaskNotFoundException extends RuntimeException {
     public TaskNotFoundException(String message) {

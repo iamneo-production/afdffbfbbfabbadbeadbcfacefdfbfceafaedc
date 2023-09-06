@@ -11,17 +11,17 @@ import java.util.*;
 public class ServiceClass{
     @Autowired
     Respository rep;
-    public ModelTask addTask(ModelTask mv)
+    public Task addTask(Task task)
     {
-        rep.save(mv);
-        return mv;
+        rep.save(task);
+        return task;
     }
-    public Optional<ModelTask> getTaskById(int id)
+    public Optional<Task> getTaskById(int id)
     {
        
         return rep.findById(id);
     }
-   public List<ModelTask> findAllTask()
+   public List<Task> findAllTask()
     {
         return rep.findAll();
     }
@@ -29,9 +29,9 @@ public class ServiceClass{
     {
         rep.deleteById(id);
     }
-    public ModelTask findByName(String name)
+    public Task findByName(String name)
     {
-        List<ModelTask> list=rep.findAll();
+        List<Task> list=rep.findAll();
         for(int i=0;i<list.size();i++)
         {
            String str=list.get(i).taskHolderName;

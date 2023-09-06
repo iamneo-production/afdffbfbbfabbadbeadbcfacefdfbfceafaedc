@@ -22,6 +22,8 @@ import com.examly.springapp.repository.TaskRepository;
 
 public class TaskController {
 
+    private static final String TASK_ERROR = "Task not found";
+
   @Autowired
   private TaskRepository taskRepository;
 
@@ -40,14 +42,14 @@ public class TaskController {
   @GetMapping("/getTask")
   public ResponseEntity<Task> getTaskById(@RequestParam Long id)
   {
-    Task task = taskRepository.findById(id).orElseThrow(()-> new TaskNotFoundException("Task not found :"+id));
+    Task task = taskRepository.findById(id).orElseThrow(()-> new TaskNotFoundException(TASK_ERROR+" :"+id));
     return ResponseEntity.ok(task);
   }
 
   @GetMapping("/changeStatus")
   public ResponseEntity<Task> updateTask(@RequestParam Long id, @RequestBody Task Taskdetails)
   {
-    Task task = taskRepository.findById(id).orElseThrow(()-> new TaskNotFoundException("Task not found :"+id));
+    Task task = taskRepository.findById(id).orElseThrow(()-> new TaskNotFoundException(TASK_ERROR+" :"+id));
     task.setTaskStatus(Taskdetails.getTaskStatus());
 
     Task updatedtask = taskRepository.save(task);
@@ -58,7 +60,7 @@ public class TaskController {
   @GetMapping("/deleteTask")
   public String deleteTaskById(@RequestParam Long id)
   {
-    Task task = taskRepository.findById(id).orElseThrow(()-> new TaskNotFoundException("Task not found :"+id));
+    Task task = taskRepository.findById(id).orElseThrow(()-> new TaskNotFoundException(TASK_ERROR+" :"+id));
     taskRepository.delete(task);
     return ResponseEntity.ok().build();
   }
